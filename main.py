@@ -1,4 +1,5 @@
 import os
+import csv 
 
 print('############')
 def list_files_and_directories(startpath):
@@ -15,14 +16,15 @@ model_dir = os.environ['SM_MODEL_DIR']
 with open(model_dir + '/output_model.txt', 'w') as f:
     f.write('Ciao sono il modello')
     
-output_dir = os.environ['SM_OUTPUT_DIR']
+ # ( 1 )
+output_dir = os.environ['SM_MODEL_DIR']
 with open(output_dir + '/output.txt', 'w') as f:
     f.write('Ciao sono i log del terminale')
     
 input_dir = os.environ['SM_INPUT_DIR']
 list_files_and_directories(input_dir)
 
-with open(input_dir + "/data/training/train.csv", 'r') as fp:
+with open(input_dir + "/data/training/train1.csv", 'r') as fp:
     lines = len(fp.readlines())
     print('######### Total Number of lines:', lines)
     with open(output_dir + "/output_lines.txt", 'w') as f:
