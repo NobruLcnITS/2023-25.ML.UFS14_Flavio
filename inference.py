@@ -17,16 +17,16 @@ def doit(lunghezza, diametro):
     model_dir = environ['SM_MODEL_DIR']
     print(f"######## La model dir è: {model_dir}")
     model = models.load_model(f"{model_dir}/output_model.keras")
-    """predict_input = np.array([
-        [lunghezza,diametro,0.125,0.5095,0.2165,0.1125,0.165,9]
+    predict_input = np.array([
+        [57.87785658389723,0.3111400080477545,1.9459399775518593,1.0,1.0,0.0,0.0,0.0]
     ])
     predict_result = model.predict(predict_input)
 
     return json.dumps({
         "inputs": predict_input.tolist(),
         "predict_result": predict_result.tolist()
-    })"""
-    return "Funziona"
+    })
+    #return "Funziona"
 
 @app.route('/ping')
 def ping():
