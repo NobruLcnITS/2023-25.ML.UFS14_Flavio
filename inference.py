@@ -13,12 +13,12 @@ logging.debug('Init a Flask app')
 app = Flask(__name__)
 
 
-def doit(lunghezza, diametro):
+def doit():
     model_dir = environ['SM_MODEL_DIR']
     print(f"######## La model dir è: {model_dir}")
     model = models.load_model(f"{model_dir}/output_model.keras")
     predict_input = np.array([
-        [57.87785658389723,0.3111400080477545,1.9459399775518593,1.0,1.0,0.0,0.0,0.0]
+        [10.19819885, 8.08577004, 0.22707724, 1.0, 0.0, 0.0, 1.0]
     ])
     predict_result = model.predict(predict_input)
 
@@ -31,7 +31,4 @@ def doit(lunghezza, diametro):
 @app.route('/ping')
 def ping():
     logging.debug('Hello from route /ping')
-    lunghezza = request.args.get('lunghezza')
-    diametro = request.args.get('diametro')
-
-    return doit(float(lunghezza), float(diametro))
+    return doit()
