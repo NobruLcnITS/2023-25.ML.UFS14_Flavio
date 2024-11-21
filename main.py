@@ -72,7 +72,7 @@ history = model.fit(x_train,y_train,batch_size= 128, epochs=epoche['epochs'],val
 
 model.save(model_dir + '/output_model.keras')
 
-print('Fase di test')
+print('############################## Fase di test ##################################')
 y_hat = model.predict(x_test)
 y_hat = y_hat.reshape(-1)
 threshold = 0.6
