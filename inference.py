@@ -28,7 +28,10 @@ def doit():
     })
     #return "Funziona"
 
+@app.route('/invocations', methods=['POST'])
+def invocations():
+    return doit()
+    
 @app.route('/ping')
 def ping():
-    logging.debug('Hello from route /ping')
-    return doit()
+    return 'Hello, World!'
